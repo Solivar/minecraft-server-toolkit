@@ -1,0 +1,1 @@
+*/10 * * * * root bash /opt/minecraft/server/auto_shutdown.sh

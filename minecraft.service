@@ -1,0 +1,23 @@
+[Unit]
+Description=Minecraft server
+
+After=network.target
+
+[Service]
+Type=forking
+
+KillMode=none
+SuccessExitStatus=0 1
+
+User=minecraft
+Group=minecraft
+
+ProtectSystem=full
+ProtectHome=true
+
+WorkingDirectory=/opt/minecraft/server
+ExecStart=/usr/bin/tmux new -s minecraft -d 'java -Xms1G -Xmx1G -jar spigot.jar'
+ExecStop=/usr/bin/tmux send-keys -t minecraft stop ENTER
+
+[Install]
+WantedBy=multi-user.target

@@ -12,7 +12,7 @@ groupadd minecraft
 useradd -r -m -d /opt/minecraft -g minecraft minecraft
 
 echo "--- Installing Git, Java and Tmux (2/$SETUP_STEPS) ---"
-apt install git openjdk-11-jre-headless tmux
+apt install git openjdk-17-jre-headless tmux
 
 echo "--- Running tools installation (3/$SETUP_STEPS) ---"
 . install_tools.sh -d $TOOLS_DIR -v $SERVER_VERSION

@@ -16,7 +16,8 @@ ProtectSystem=full
 ProtectHome=true
 
 WorkingDirectory=/opt/minecraft/server
-ExecStart=/usr/bin/tmux new -s minecraft -d 'java -Xms1G -Xmx1G -jar spigot.jar'
+ExecStartPre=/usr/bin/tmux new -s minecraft -d
+ExecStart=/usr/bin/tmux send-keys -t minecraft start_server.sh ENTER
 ExecStop=/usr/bin/tmux send-keys -t minecraft stop ENTER
 
 [Install]
